@@ -34,7 +34,22 @@ git 사용법
 
 > git branch -d 'branch name'   
 
-##
+
+
+# remote
+
+## remote 추가
+
+- git remote add 단축이름 url
+```sh
+> git remote
+# origin 이라는 이름으로 리모트 추가
+$ git remote add origin git://github.com/yong422/wiki.git
+$ git remote -v
+origin git://github.com/yong422/wiki.git (fetch)
+origin git://github.com/yong422/wiki.git (push)
+
+```
 
 
 # CentOS5 git 설치
