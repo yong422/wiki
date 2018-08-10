@@ -16,6 +16,8 @@
 
 ## 빌드 
 
+- [옵션 참고](https://dev.mysql.com/doc/refman/5.6/en/source-configuration-options.html)
+
 - -DDEFAULT_CHARSET=utf8
 
   > 주로 사용하는 캐릭터셋을 설정   

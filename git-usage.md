@@ -66,3 +66,51 @@ make install
 # 기존 git 을 덮어쓰기위해 usr 에 설치
 ```
 
+# reset
+
+## commit reset
+
+- 커밋이 잘못되었거나 할 경우 기존의 특정 리비전으로 변경하고 싶을때
+
+```sh
+commit 47d1eaf0de28ba692705b0cdc3f5a01ee6aaa82a (HEAD -> develop_tms-10, origin/develop_tms-10)
+Merge: 2189341 092f499
+Author: Yongkyu Jo <ykjo@gabia.com>
+Date:   Fri Aug 10 14:57:44 2018 +0900
+
+    TMS-10 syslog module 추가 및 테스트 추가
+
+commit 218934126b148524fa0905b3569989f32a638283
+Author: Yongkyu Jo <ykjo@gabia.com>
+Date:   Fri Aug 10 14:55:26 2018 +0900
+
+    TMS-10 syslog module 추가 및 테스트 추가
+
+commit 092f4991bceeece26fb996c83fa11213f0e8856c
+Author: KimMineCheol <kmc@gabia.com>
+Date:   Thu Aug 9 16:49:53 2018 +0900
+
+    TMS-10 일부 불필요 코드삭제 및 띄어쓰기 수정
+
+commit 46f2a151be1e1247395f736d20e55747bd3f2dda
+Author: KimMineCheol <kmc@gabia.com>
+Date:   Thu Aug 9 16:45:31 2018 +0900
+
+    TMS-10 syslog module 추가 및 테스트코드 추가
+
+commit 48050ec1a3d87c8c50b473940e251f4e5c879eec (origin/develop_tms-5, develop_tms-5)
+Author: ykjo <ykjo2gabia.com>
+Date:   Thu Aug 9 15:26:25 2018 +0900
+
+    TMS-5 띄어쓰기 오류수정
+```
+
+- 돌아가고 싶은 리비전 확인.
+  - 48050ec1a3d87c8c50b473940e251f4e5c879eec
+
+```sh
+git reset --soft 48050ec1a3d87c8c50b473940e251f4e5c879eec
+
+# 해당 리비전으로 되돌리며 현재까지 작업한 내용은 그대로 유지한다.
+# --hard 옵션인 경우 해당 리비전의 소스로 원복한다.
+```
