@@ -43,6 +43,12 @@
   > 기본 collation 설정    
   > 기본값은 latin1_swedish_ci   
 
+- -DWITHOUT_SERVER
+
+  - type : BOOL
+  - default : FALSE
+  - description : libmysqlclient 만 사용하는 경우 서버 전체 빌드는 workload 가 크기때문에 해당 옵션을 ON 하여 
+
 # libkrisp
 
 ## 참조
