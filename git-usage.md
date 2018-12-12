@@ -1,6 +1,24 @@
 git 사용법
 ==========
 
+# git 설치 예외처리
+
+* curl-config 에러 발생할 경우 아래 패키지 설치
+```bash
+$localhost> sudo apt-get install libcurl4-gnutls-dev
+$localhost> sudo apt-get install libcurl4-openssl-dev
+
+#* /bin/sh: autoconf: not found 에러 발생할 경우 아래 패키지 설치
+$localhost> sudo apt-get install autoconf autoconf2.13 
+
+#* tclsh failed; using unoptimized loading 에러 발생할 경우 아래 패키지 설치
+$localhost> sudo apt-get install gettext
+
+#* /bin/sh: asciidoc: not found 에러 발생할 경우 아래 패키지 설치
+$localhost> sudo apt-get install asciidoc
+```
+
+
 # 인증정보 캐쉬
 
 - 인증정보가 설정된 git remote repository 사용시 submodule 하나하나 인증정보를 입력해야 하는 이슈   
