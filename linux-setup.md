@@ -16,3 +16,23 @@
 > disallows logins completely and returns a polite account unavailable message.   
 > -> 사용자 계정의 쉘부분에 /bin/nologin 으로 설정을 하면   
 > 로긴 불가하고, 메시지들은 반환된다 ssh는 사용불가능하며 ftp의 경우 사용이 가능합니다.   
+
+# ssh 비대화형 커맨드 환경변수 설정
+
+> linux ssh remote command 실행시 비대화식 커맨드의 경우   
+> bashrc or bash_profile 이 실행되지 않는다.   
+
+```bash
+$localhost > ssh 10.1.1.1 'command'
+#Not found commnad 에러발생
+```
+
+> bashrc 파일에   
+> if [ "$PS1" ]; then or if [ -z "$PS1" ]; then 행이있을경우   
+> 비대화식 ssh 커맨드의 경우 bashrc 설정하지 않음.   
+> ssh 명령옵션으로 -t 실행시 TTY 할당이 강제 실행되어   
+> 대화형 쉘로 작동하게 한다.   
+
+```bash
+$localhost > ssh -t 10.1.1.1 'source ~/.bash_profile; command'
+```
