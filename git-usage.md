@@ -42,16 +42,27 @@ $localhost> sudo apt-get install asciidoc
 - 해당 branch 가 없을 경우 생성하며 branch 전환
 - 동일한 branch 가 있을 경우 실패
 
-> git checkout -b 'branch name'    
+  ```bash 
+  $ git checkout -b 'branch name' 
+  ```
 
 - 동일한 branch 가 있을 경우 해당 branch 로 전환
 
-> git checkout 'branch name'   
+  ```bash 
+  $ git checkout 'branch name'   
+  ```
+
+- remote branch 를 따라가도록 전환
+
+  ```bash 
+  $ git branch -b newbranch origin/newbranch   
+  ```
 
 ## branch 삭제
 
-> git branch -d 'branch name'   
-
+```bash 
+git branch -d 'branch name'   
+```
 
 
 # remote
@@ -132,3 +143,9 @@ git reset --soft 48050ec1a3d87c8c50b473940e251f4e5c879eec
 # 해당 리비전으로 되돌리며 현재까지 작업한 내용은 그대로 유지한다.
 # --hard 옵션인 경우 해당 리비전의 소스로 원복한다.
 ```
+
+# setup
+
+## windows git config 에디터 수정
+
+- [참조](https://stackoverflow.com/questions/10564/how-can-i-set-up-an-editor-to-work-with-git-on-windows)
