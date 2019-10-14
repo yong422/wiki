@@ -169,3 +169,9 @@ make;make install
 - pkg-config 가 설치되어있어야 curl에서 참조하는 openssl 의 pkgconfig 가 사용 가능   
 - CentOS 는 기본적으로 설치 되어있으나 Ubuntu는 기본설치가 안되어 있을 수 있으므로 설치 필요   
 
+# thrift
+
+## 주의사항
+
+- thrift 빌드시 WITH_LIBEVENT 옵션 미추가시 thrift 논블럭킹 라이브러리가 안생김. (thriftnb)
+- thrift 와 같이 libevent 를 static library 로 사용하는 경우 libevent cmake 빌드시 CMAKE_C_FLAGS 에 -fPIC 추가하여 실행해야 함.

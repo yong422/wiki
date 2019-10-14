@@ -149,3 +149,58 @@ git reset --soft 48050ec1a3d87c8c50b473940e251f4e5c879eec
 ## windows git config 에디터 수정
 
 - [참조](https://stackoverflow.com/questions/10564/how-can-i-set-up-an-editor-to-work-with-git-on-windows)
+
+# rebase
+
+## git squash
+
+- 여러 commit 을 하나의 commit 으로 변경 하고자 할때 
+
+```bash
+# git commit hash 를 한라인으로 확인.
+$ git log --pretty=oneline
+
+5143680e54e893adcfe9223cd712b99e97e03ca7 Merge branch 'develop_xms-541' into 'master'
+9dcc0d395fbb4b7ee59548f7d9bf43cafff29c2d XMS-541 v1.3.1 readme 추가
+d9acffea4dae12d77fe45deb36f5a016dabaf126 XMS-541 dictionary 를 이용한 string 의 파라미터 변환을 위한 기능 추가
+b5a0806f94e860d529a613de7d9466f784ffb7e0 Merge branch 'develop_xms-489' into 'master'
+5d953126ddfd2096b7f3186dc986afd8cdc0a148 XMS-489 timestamp 를 변수로 사용가능한 외부함수에 대해 static 으로 정의
+e920dd8565e5fa1d7eee41f4f7d926f49b60b6ca XMS-489 README 내용 추가
+bc97cf2e2a412b232112b5112f509d3bfd3ce9c2 Merge branch 'develop_xms-489' of https://gitlab.gabia.com/monitoring/common/cpp/reference into develop_xms-489
+c410d24cd7532385af7e6af6bd15d2baada09703 XMS-489 xms datetime string 공통 사용을 위한 DateTime 모듈 추가
+43d791968c9063aec0380b0080ec197e29c83a78 Merge branch 'develop_xms-530' into 'master
+
+# 최상단 HEAD 를 포함한 3개의 commit rebase
+
+$ git rebase -i HEAD~3
+
+
+# editor 출력
+
+pick 5143680 XMS-633 Merge branch 'develop_xms-541' into 'master'
+pick 9dcc0d3 XMS-633 XMS-541 v1.3.1 readme 추가
+pick d9acffe XMS-541 dictionary 를 이용한 string 의 파라미터 변환을 위한 기능 추가
+
+# Rebase b5a0806..5143680 onto b5a0806 (3 command(s))
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like "squash", but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+# d, drop = remove commit
+
+
+# 다음과 같은 출력
+# squash 하려는 commit 을 squash 로 수정.
+# 하나의 커밋을 pick 으로 남겨둔다.
+
+pick 5143680 XMS-633 Merge branch 'develop_xms-541' into 'master'
+squash 9dcc0d3 XMS-633 XMS-541 v1.3.1 readme 추가
+squash d9acffe XMS-541 dictionary 를 이용한 string 의 파라미터 변환을 위한 기능 추가
+
+# 저장시 새로운 commit 에 대한 commit message 에 대해 수정 후 커밋을 완료.
+```
+

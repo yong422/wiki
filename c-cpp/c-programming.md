@@ -11,3 +11,8 @@ C programming
 int vprintf(const char* format, va_list ap);
 int vsnprintf(char *str, size_t size, const char* size, va_list ap);
 ```
+
+# 정규표현식
+
+- GNU libstdc++ 에서 공식적으로 std::regex 가 릴리즈 된 건 v4.9.0
+- v4.8 (CentOS 7 개발기준 4.8.6) 부터도 사용가능하나 버그가 많음
