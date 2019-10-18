@@ -17,4 +17,5 @@
 
 - ykjo
 - dydrb422@naver.com
-- c++, python, mysql
+- c++, python, mysql, redis, sflow
+- https://www.notion.so/ykjo/Development-9b247aa47ded456897271b830a15c244
